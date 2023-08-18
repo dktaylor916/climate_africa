@@ -5,6 +5,16 @@
  * Copyright (c) 2015 Alex Duner and Northwestern University Knight Lab
  */
 
+Element.prototype.remove = function () {
+  this.parentElement.removeChild(this);
+};
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
+  for (var i = this.length - 1; i >= 0; i--) {
+    if (this[i] && this[i].parentElement) {
+      this[i].parentElement.removeChild(this[i]);
+    }
+  }
+};
 (function (document, window) {
   var juxtapose = {
     sliders: [],
@@ -554,13 +564,12 @@
         this.labCredit.setAttribute("href", "https://juxtapose.knightlab.com");
         this.labCredit.setAttribute("target", "_blank");
         this.labCredit.setAttribute("rel", "noopener");
-        this.labCredit.className = "jx-knightlab";
+
         this.labLogo = document.createElement("div");
-        this.labLogo.className = "knightlab-logo";
+
         this.labCredit.appendChild(this.labLogo);
         this.projectName = document.createElement("span");
-        this.projectName.className = "juxtapose-name";
-        setText(this.projectName, "JuxtaposeJS");
+
         this.labCredit.appendChild(this.projectName);
 
         this.slider.appendChild(this.handle);

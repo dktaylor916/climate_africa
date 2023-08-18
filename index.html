@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Africa Climate Change</title>
+    <title>Warming Earth, Shrinking Climates</title>
     <meta charset="utf-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -68,10 +68,10 @@
 
         let origImages = [
             {
-              "src": "Final_legend_present_v2.png"
+              "src": "Final_legend_present_v4.png"
             },
             {
-                "src": "Final_legend_future_v2.png"
+                "src": "Final_legend_future_v4.png"
             }
         ];
 
@@ -88,7 +88,7 @@
         const juxtaposeSelector = "#juxtapose-embed";
         const transientSelector = "#juxtapose-hidden";
         var slider;
-
+        
         function replaceImage(LeftRight) {
             let leftImage = {
                 label: "Left kitten",
@@ -133,7 +133,9 @@
                 juxtaposeSelector, origImages, origOptions);
             document.getElementById("left-button").onclick = replaceLeft;
             document.getElementById("right-button").onclick = replaceRight;
+        
         })();
+        
 
     </script>
 
